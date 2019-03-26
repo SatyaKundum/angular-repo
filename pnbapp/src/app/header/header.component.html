@@ -1,3 +1,15 @@
-<p>
-  header works!
-</p>
+<nav class="navbar navbar-inverse header-color">
+  <div class="container">
+    <div class="navbar-header">
+      <a routerLink="/" class="navbar-brand title-color">PortalNBeyond</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="/login" class="title-color">Login</a></li>
+        <li><a routerLink="/register" class="title-color">Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
