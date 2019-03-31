@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -27,6 +28,7 @@ export class RegisterComponent implements OnInit {
 
   onRegisterSubmit(){
     console.log(this.registrationForm);
+    
   }
 
 
