@@ -1,3 +1,40 @@
-<p>
-  register works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form (ngSubmit)="onRegisterSubmit()" #f="ngForm">
+          <div id="user-data" ngModelGroup="userRegisterData" #userRegisterData="ngModelGroup">
+            <div class="form-group">
+              <h3>Register</h3>
+              <p class="help-block"> Please fill the below details and click Register to create a new PortalNBeyond Application account.
+              </p>
+            </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" class="form-control" ngModel name="username" required #username="ngModel">
+              <span class="help-block" *ngIf="!username.valid && username.touched">Please enter username</span>
+            </div>
+            <button class="btn btn-default" type="button" (click)="suggestUserName()">Suggest an Username</button>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" ngModel name="email" required #email="ngModel">
+                <span class="help-block" *ngIf="!email.valid && email.touched">Please enter email</span>
+              </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" class="form-control" ngModel name="password" required
+                #password="ngModel">
+              <span class="help-block" *ngIf="!password.valid && password.touched">Please enter password</span>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" class="form-control" ngModel name="confirmPassword" required
+                  #confirmPassword="ngModel">
+                <span class="help-block" *ngIf="!confirmPassword.valid && confirmPassword.touched">Please enter confirm password</span>
+              </div>
+
+          </div>
+          <button class="btn btn-primary" type="submit" [disabled]=!f.valid>Register</button>
+        </form>
+      </div>
+    </div>
+  </div>

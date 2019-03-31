@@ -3,11 +3,12 @@
     border-top: 1px solid #eee;
     background: blanchedalmond;
     padding:10px;
+    position: fixed;
 }
 
 .bottom-footer {
-    position: absolute;
     bottom:0;
     left:0;
     right:0;
+    width: 100%;
 }

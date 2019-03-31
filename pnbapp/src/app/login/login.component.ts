@@ -22,16 +22,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  suggestUserName() {
-    console.log('suggest username');
-    const suggestUserName = 'PnbSuperUser';
-    this.loginForm.form.patchValue({
-      userLoginData: {
-        username: suggestUserName
-      }
-    });
-  }
-
   onLoginSubmit() {
     console.log(this.loginForm);
     this.user.username = this.loginForm.value.userLoginData.username;
