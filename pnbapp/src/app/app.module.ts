@@ -9,6 +9,8 @@ import { PasswordComponent } from './password/password.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 const appRoutes : Routes = [
   {path : ' ', component: HeaderComponent},
@@ -24,11 +26,13 @@ const appRoutes : Routes = [
     RegisterComponent,
     PasswordComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
