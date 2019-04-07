@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ApiService } from '../api.service';
+import { PnbUser } from '../pnb-user';
 
 
 @Component({
@@ -11,10 +13,13 @@ export class RegisterComponent implements OnInit {
 
   @ViewChild('f') registrationForm: NgForm;
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.onRegisterUser;
   }
+
+
 
   suggestUserName() {
     console.log('suggest username');
@@ -26,10 +31,15 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onRegisterSubmit(){
-    console.log(this.registrationForm);
-    
+  pnbuser: {
+    "username": "test11",
+    "email": "test11@gmail.com",
+    "password": "skdjflsajflsaf"
   }
 
-
+  onRegisterUser() {
+    this.apiService.createUser(this.pnbuser).subscribe((response) => {
+      console.log(response);
+    });
+  }
 }
