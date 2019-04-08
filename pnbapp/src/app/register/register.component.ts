@@ -10,7 +10,7 @@ import { PnbUser } from '../pnb-user';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  title = 'registration module';
   @ViewChild('f') registrationForm: NgForm;
 
   constructor(private apiService: ApiService) { }
@@ -18,8 +18,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.onRegisterUser;
   }
-
-
 
   suggestUserName() {
     console.log('suggest username');
@@ -31,15 +29,12 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  pnbuser: {
-    "username": "test11",
-    "email": "test11@gmail.com",
-    "password": "skdjflsajflsaf"
-  }
+  pnbuser = new PnbUser('test123', 'test290@gmail.com', 'sajhfasl');
 
   onRegisterUser() {
+    console.log('inside register user');
     this.apiService.createUser(this.pnbuser).subscribe((response) => {
-      console.log(response);
+      console.log("service response"+response);
     });
   }
 }
