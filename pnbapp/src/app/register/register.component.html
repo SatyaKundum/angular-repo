@@ -1,6 +1,8 @@
 <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        {{responseMessage}}
+        <div *ngIf="Success"> <a routerLink="/login"><span class="title-color">Login</span></a></div>
         <form (ngSubmit)="onRegisterUser()" #f="ngForm" ng-controller="RegistrationController">
           <div id="user-data" ngModelGroup="userRegisterData" #userRegisterData="ngModelGroup">
             <div class="form-group">

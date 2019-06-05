@@ -12,8 +12,17 @@ import { PnbUser } from '../pnb-user';
 export class RegisterComponent implements OnInit {
   title = 'registration module';
   @ViewChild('f') registrationForm: NgForm;
+  errorMessage: String;
+  responseMessage: String;
 
   constructor(private apiService: ApiService) { }
+
+  user = {
+    username: '',
+    email: '',
+    password: ''
+  };
+  submitted = false;
 
   ngOnInit() {
     this.onRegisterUser;
@@ -29,12 +38,16 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  pnbuser = new PnbUser('test123', 'test290@gmail.com', 'sajhfasl');
+  pnbuser = new PnbUser('','','');
 
   onRegisterUser() {
-    console.log('inside register user');
-    this.apiService.createUser(this.pnbuser).subscribe((response) => {
-      console.log("service response"+response);
-    });
+    this.user.username = this.registrationForm.value.userRegisterData.username;
+    this.user.password = this.registrationForm.value.userRegisterData.password;
+    this.user.email = this.registrationForm.value.userRegisterData.email;
+    this.pnbuser = new PnbUser(this.user.username, this.user.password, this.user.password);
+    this.apiService.createUser(this.pnbuser).subscribe(response => {
+      this.responseMessage = response;
+    }, error => this.errorMessage = <any> error);
+    this.registrationForm.reset();
   }
 }

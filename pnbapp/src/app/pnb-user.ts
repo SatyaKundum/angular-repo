@@ -4,3 +4,9 @@ export class PnbUser {
     public  password: string
     ){}
 }
+
+export class PnbSignInUser {
+    constructor (public username: string,
+    public  password: string
+    ){}
+}
